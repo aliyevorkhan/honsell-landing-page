@@ -1,5 +1,6 @@
 
 <script>
+   var url = url+"";
     var product_data = null;
     window.onload = function() {
        // get product id from url
@@ -8,7 +9,7 @@
             const product_id = url.split('product_detail/')[1].split('/')[0];
 
             document.getElementById('order-btn').addEventListener('click', function() {
-                fetch('http://localhost:9000/api/product/'+product_id)
+                fetch(url+'/api/product/'+product_id)
                     .then(response => response.json())
                     .then(data => {
                         product_data = data;
@@ -17,7 +18,7 @@
        };
     };
     function calculateTotal(type_id) {
-       fetch('http://localhost:9000/api/types/' + type_id)
+       fetch(url+'/api/types/' + type_id)
           .then(response => response.json())
           .then(data => {
              const total = document.getElementById('total');
@@ -64,7 +65,7 @@
     function getSubscriptions() {
        var subscriptions = document.getElementById('subscriptions');
        var subscriptionList = [];
-       fetch('http://localhost:9000/api/products')
+       fetch(url+'/api/products')
           .then(response => response.json())
           .then(datas => {
              datas.forEach(data => {
@@ -100,7 +101,7 @@
     function subscribeMe() {
        var tel = document.getElementById('wpTel').value;
        console.log(tel);
-       fetch('http://localhost:9000/api/subscribe/', {
+       fetch(url+'/api/subscribe/', {
           method: 'POST',
           headers: {
              'Content-Type': 'application/json',
@@ -118,7 +119,7 @@
     };
 
     function likeProduct(product_id) {
-      fetch('http://localhost:9000/api/like/' + product_id)
+      fetch(url+'/api/like/' + product_id)
       .then(response => response.json())
       .then(data => {
          console.log(data);
