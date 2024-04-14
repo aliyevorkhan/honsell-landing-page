@@ -1,0 +1,257 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+   {% include "includes/header.html" %}
+   <body>
+      <!-- pre loader area start -->
+      <div id="loading">
+         <div id="loading-center">
+            <div id="loading-center-absolute">
+               <!-- loading content here -->
+               <div class="tp-preloader preloader-1">
+                  <div class="tp-preloader">
+                     <div class="tp-preloader">
+                        <div class="tp-preloader">
+                           <div class="tp-preloader">
+                              <div class="tp-preloader">
+                                 <div class="tp-preloader">
+                                    <div class="tp-preloader">
+                                       <div class="tp-preloader">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- preloader style 2 -->
+               <div class="tp-preloader-2">
+                  <svg width="180" height="180" viewBox="0 0 100 100">
+                     <polyline class="line-cornered stroke-still" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
+                     <polyline class="line-cornered stroke-still" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
+                     <polyline class="line-cornered stroke-animation" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
+                     <polyline class="line-cornered stroke-animation" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
+                  </svg>
+               </div>
+
+               <!-- prealoader style 3 -->
+               <div class="tp-preloader-3">
+                  <div class="loader loader-1">
+                     <div class="loader-outter"></div>
+                     <div class="loader-inner"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- pre loader area end -->
+
+      <!-- back to top start -->
+      <div class="progress-wrap">
+         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+         </svg>
+      </div>
+      <!-- back to top end -->
+
+
+      <!-- header area start -->
+      {% include "includes/navbar.html" %}
+
+      <!-- header area end -->
+
+      <!-- theme settings area start -->
+      <div class="theme__settings transition-3">
+         <div class="theme__settings-btn">
+            <button type="button" class="theme__settings-expand" id="theme-setting-toggle"><i class="fa-solid fa-gear"></i></button>
+            <button type="button" class="theme__settings-close" id="theme-setting-close"><i class="fa-regular fa-xmark"></i></button>
+         </div>
+         <div class="theme__settings-wrapper text-center">
+
+            <div class="theme__switch mb-30">
+               <h4 class="theme__settings-title">Select your desired theme</h4>
+                  <!-- light dark moode switcher start -->
+                  <div class="my_switcher setting-option">
+                     <ul>
+                        <li>
+                           <a href="javascript: void(0);" data-theme="dark" class="setColor dark theme__switcher-btn">
+                              <i class="fa-light fa-moon"></i> Dark
+                           </a>
+                        </li>
+                        <li>
+                           <a href="javascript: void(0);" data-theme="light" class="setColor light theme__switcher-btn">
+                              <i class="fa-light fa-brightness-low"></i> Light
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               <!-- light dark moode switcher end -->
+            </div>
+
+            <div class="theme__settings-color">
+               <h4 class="theme__settings-title">Select your favorite color</h4>
+
+               <div class="theme__settings-color-input">
+                  <input type="color" data-color="color" value="#3771FE">
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- theme settings area end -->
+
+      <!-- offcanvas area start -->
+      <div class="offcanvas__area">
+         <div class="modal fade" id="offcanvasmodal" tabindex="-1" aria-labelledby="offcanvasmodal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <div class="offcanvas__wrapper">
+                      <div class="offcanvas__content">
+                         <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo logo">
+                               <a href="#">
+                               <img src="{% static 'assets/img/logo/logo-black.png' %}" alt="logo">
+                               </a>
+                            </div>
+                            <div class="offcanvas__close">
+                               <button class="offcanvas__close-btn" data-bs-toggle="modal" data-bs-target="#offcanvasmodal">
+                                  <i class="fal fa-times"></i>
+                               </button>
+                            </div>
+                         </div>
+                         
+                         <div class="mobile-menu fix mb-40"></div>
+                        
+                         <div class="offcanvas__social">
+                            <ul>
+                               <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                               <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                               <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                               <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- offcanvas area end -->
+      <div class="body-overlay"></div>
+      <!-- offcanvas area end -->
+
+      <main>
+
+         <!-- product details area start -->
+         <section class="product__details-area pt-80 pb-120">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-7 col-xl-6 col-lg-6">
+                     <div class="product__details-thumb-tab d-sm-flex align-items-start">
+                        <div class="product__details-thumb-content">
+                           <div class="tab-content" id="nav-tabContent">
+                              <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                                 <img src="{{product.image.url}}" alt="">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xxl-5 col-xl-6 col-lg-6">
+                     <div class="product__details-wrapper">
+                        <h3 class="product__details-title">{{product.title}}</h3>
+
+                        <div class="product__details-bid-info">
+                           <p><span>{{product.discounted_initial_price}} AZN</span>'dən başlayan qiymətlərlə</p>
+                           {% if product.is_active %}
+                              <p>stokda var</p>
+                           {% else %}
+                              <p>stokda yoxdur</p>
+                           {% endif %}
+                        </div>
+                        <div class="product__details-meta">
+                           <a href="#" onclick="likeProduct({{product.id}})"><i class="fa-light fa-heart"></i> <span id="likeCount">{{product.likes}}</span></a>
+                           <a href="#"><i class="fa-light fa-eye"></i> {{product.views}}</a>
+                           <a href="#" data-bs-toggle="modal" data-bs-target="#sharemodal"><i class="fa-light fa-share-nodes"></i> Paylaş</a>
+                        </div>
+
+                        <div class="product__details-info">
+                           <div class="product__details-info-top">
+
+                           </div>
+                           <div class="product__details-info-tab-content">
+                              <div class="tab-content" id="product-details">
+                                 <div class="tab-pane fade show active" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
+                                    <div class="product__details-tab-item">
+                                       <div class="product__details-properties">
+                                          <h3>Xüsusiyyətlər</h3>
+                                          {% for product_detail in product.details.all %}
+                                             <div class="product__details-properties-wrapper d-flex">
+                                                <div class="product__details-properties-item mb-25">
+                                                   <span>{{product_detail.title}}</span>
+                                                   <h4>{{product_detail.description}}</h4>
+                                                </div>
+                                             </div>
+                                          {% endfor %}
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                           </div>
+                           <div class="product__details-info-bottom ">
+                              <div class="product__details-bid d-sm-flex align-content-center justify-content-between">
+                                 <div class="product__details-bid-status mb-15">
+                                    <p>Qiymət:</p>
+                                    <h4>{{product.discounted_initial_price}} AZN <span>/ <strike>{{product.initial_price}} AZN</strike></span></h4>
+                                 </div>
+                              </div>
+                              <div class="product__details-bid-countdown mb-15">
+                                 <a href="#" class="order-btn-3" id="order-btn" data-bs-toggle="modal" data-bs-target="#bidmodal">Sifariş et</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- product details area end -->
+
+         <!-- share modal start -->
+         <div class="share__modal modal fade" id="sharemodal" tabindex="-1" aria-labelledby="sharemodal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                  <div class="share__modal-content text-center">
+                     <div class="share__nft-content">
+                        <div class="share__thumb">
+                           <img src="{{product.image.url}}" alt="">
+                        </div>
+
+                     </div>
+                     <div class="share__social">
+                        <h3>Dostlarınla paylaş</h3>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- share modal end -->
+
+         <!-- bid popup area start -->
+         {% include "includes/order-modal.html" %}
+         <!-- bid popup area end -->
+
+      </main>
+
+      <!-- footer area start -->
+      {% include "includes/footer.html" %}
+   </body>
+</html>
+{% include "includes/javascript.html" %}

@@ -1,0 +1,57 @@
+{% load static %}
+<div class="bid__modal modal fade" id="bidmodal" tabindex="-1" aria-labelledby="bidmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="bid__modal-close">
+             <button type="button" class="bid__modal-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-regular fa-xmark"></i></button>
+          </div>
+          <div class="bid__modal">
+             <h3 class="bid__modal-title">Sifarişi tamamla</h3>
+             <p></p>
+
+             <div class="bid__modal-form">
+                <form action="#">
+                   <div class="row">
+                      <div class="col-xxl-8 col-md-8">
+                         <div class="profile__input-box">
+                            <div class="profile__input">
+                               <select id="type-select">
+                                  <option value="0" disabled selected>Seçin</option>
+                                  {% for product_type in product.types.all %}
+                                      <option value="{{product_type.id}}">{{ product_type.title }}</option>
+                                  {% endfor %}
+                               </select>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-xxl-4 col-md-4">
+                         <div class="profile__input-box">
+                            <div class="profile__input">
+                               <select id="quantity-select">
+                                  <option value="1" selected>1 ədəd</option>
+                                  <option value="2">2 ədəd</option>
+                                  <option value="3">3 ədəd</option>
+                               </select>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+
+                   <div class="bid__modal-info">
+                      <p>Ümumi qiymət: <span id="total">-</span></p>
+                      <p>Endirim: <span id="discount" style="color: red;">-</span></p>
+                      <p>Toplam: <span style="color: green;" id="discounted-total">-</span></p>
+                   </div>
+                   <div class="bid__modal-btn">
+                     <div class="bid__modal-info">
+                        <p>PROMO KOD: #HONSELLSITE</p>
+                        <p>Qeyd: Sifarişi tamamlamaq üçün Whatsapp-a yönləndiriləcəksiniz</p>
+                     </div>
+                     <a href="#" class="order-btn-2" id="order-btn-wp">Sifariş et</a>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

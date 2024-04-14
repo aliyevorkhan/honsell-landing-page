@@ -1,0 +1,103 @@
+{% load static %}
+      <!-- footer area start -->
+      <footer>
+        <div class="footer__area">
+           <div class="footer__top">
+              <div class="container tp-container">
+                 <div class="footer__top-border pt-65 pb-40">
+                    <div class="row">
+                       <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                          <div class="footer__widget mb-50">
+                             <div class="footer__info">
+                                <div class="footer__logo">
+                                   <a href="#">
+                                      <img class="logo-white" src="{% static 'assets/img/logo/logo.png' %}"alt="">
+                                      <img class="logo-black" src="{% static 'assets/img/logo/logo-black.png' %}"alt="">
+                                   </a>
+                                </div>
+                                <p>
+                                   Honsell olaraq güvənli, sürətli və asan ödəniş üsulları ilə müştərilərimizə E-pin almaq, oyun içi ödəniş kimi bir çox xidmətləri göstəririk. Təcrübəli dəstək komandamız sayəsində yüksək keyfiyyətdə xidmət göstərib, sifarişlərini maksimum tez biz zamanda tamamlayırıq. Məqsədimiz sərfəli qiymət, yüksək keyfiyyət göstərməkdir.
+                                </p>
+  
+                                <div class="footer__social">
+                                   <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                                   <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                   <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="col-xxl-2 col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                          <div class="footer__widget footer-col-2 mb-50">
+                             <h3 class="footer__widget-title">Bölmələr</h3>
+                             <ul>
+                                <li><a href="{% url 'faq' %}">ÇSS</a></li>
+                                <li><a href="{% url 'terms' %}">Qaydalar</a></li>
+                                <li><a href="#">Əlaqə</a></li>
+                                <li><a href="#">Haqqımızda</a></li>
+                             </ul>
+                          </div>
+                       </div>
+                       <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__widget footer-col-2-4 mb-50">
+                           <h3 class="footer__widget-title">Əlaqə</h3>
+
+                           <div class="footer__subscribe footer__subscribe-2">
+                              <p>Sizinlə əlaqə yaradılmağını istəyirsinizsə aşağı Whatsapp nömrənizi qeyd edin.</p>
+                                 <div class="footer__subscribe-form p-relative" id="subscribeDiv">
+                                    <div class="footer__subscribe-input">
+                                       <input type="text" placeholder="Tel: +994 01 234 56 78" id="wpTel" name="wpTel">
+                                       <i class="fa-light fa-mobile"></i>
+                                    </div>
+                                    <button class="footer__subscribe-input-btn" onclick="subscribeMe()">Mənə Yazın</button>
+                                 </div>
+                              <p class="info">Qeyd etdiyiniz Whatsapp nömrəsi ilə ən qısa zaman ərzində əlaqə yaradılacaq.</p>
+                           </div>
+                        </div>
+                     </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="footer__bottom">
+              <div class="container tp-container">
+                 <div class="row">
+                    <div class="col-xxl-6 col-sm-6">
+                       <div class="footer__copyright">
+                          <p><a href="/">©Honsell</a>, 2024 Bütün huquqları qorunur.</p>
+                       </div>
+                    </div>
+                    <div class="col-xxl-6 col-sm-6">
+                       <div class="footer__menu text-sm-end">
+                          <a href="{% url 'terms' %}">Şərtlər və qaydalar</a>
+                          <a href="/">Üzvlük müqaviləsi</a>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+     <!-- footer area end -->
+
+
+     <!-- JS here -->
+     <script src="{% static 'assets/js/vendor/jquery.js' %}"></script>
+     <script src="{% static 'assets/js/vendor/waypoints.js' %}"></script>
+     <script src="{% static 'assets/js/bootstrap-bundle.js' %}"></script>
+     <script src="{% static 'assets/js/cookie.js' %}"></script>
+     <script src="{% static 'assets/js/style-switcher.js' %}"></script>
+     <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+     <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
+     <script src="{% static 'assets/js/slick.js' %}"></script>
+     <script src="{% static 'assets/js/countdown.js' %}"></script>
+     <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+     <script src="{% static 'assets/js/parallax.js' %}"></script>
+     <script src="{% static 'assets/js/nouislider.min.js' %}"></script>
+     <script src="{% static 'assets/js/backtotop.js' %}"></script>
+     <script src="{% static 'assets/js/nice-select.js' %}"></script>
+     <script src="{% static 'assets/js/counterup.js' %}"></script>
+     <script src="{% static 'assets/js/wow.js' %}"></script>
+     <script src="{% static 'assets/js/isotope-pkgd.js' %}"></script>
+     <script src="{% static 'assets/js/imagesloaded-pkgd.js' %}"></script>
+     <script src="{% static 'assets/js/main.js' %}"></script>

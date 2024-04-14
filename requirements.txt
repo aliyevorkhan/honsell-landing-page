@@ -1,0 +1,12 @@
+Django==3.2
+django-environ
+django-admin-rangefilter
+django-admin-autocomplete-filter==0.7.1
+psycopg2-binary
+gunicorn
+Pillow
+django-rest-framework
+django-cors-headers
+django-filter
+django-rest-auth
+django-allauth

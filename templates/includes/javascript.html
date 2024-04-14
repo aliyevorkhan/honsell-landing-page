@@ -1,0 +1,128 @@
+
+<script>
+    var product_data = null;
+    window.onload = function() {
+       // get product id from url
+       const url = window.location.href;
+       if (url.includes('product_detail')) {
+            const product_id = url.split('product_detail/')[1].split('/')[0];
+
+            document.getElementById('order-btn').addEventListener('click', function() {
+                fetch('http://localhost:9000/api/product/'+product_id)
+                    .then(response => response.json())
+                    .then(data => {
+                        product_data = data;
+                });
+            });
+       };
+    };
+    function calculateTotal(type_id) {
+       fetch('http://localhost:9000/api/types/' + type_id)
+          .then(response => response.json())
+          .then(data => {
+             const total = document.getElementById('total');
+             const discount = document.getElementById('discount');
+             const discounted_total = document.getElementById('discounted-total');
+             quantity = document.getElementById('quantity-select').value;
+             umumi_qiymet = (data.price * document.getElementById('quantity-select').value).toFixed(2);
+             endirim = (data.price*quantity - data.discounted_price*quantity).toFixed(2);
+             endirimli_toplam = (umumi_qiymet - endirim).toFixed(2);
+
+             total.innerHTML = umumi_qiymet + ' AZN';
+             discount.innerHTML = `-${endirim} AZN`;
+             discounted_total.innerHTML = `
+                ${endirimli_toplam} AZN / <strike>${umumi_qiymet} AZN</strike>
+             `;
+             orderBtnWp = document.getElementById('order-btn-wp');
+             text = `Salam, mən ${quantity} ədəd ${data.title} ${product_data.title} sifariş etmək istəyirəm. PROMO KOD: HONSELLSITE`
+             orderBtnWp.href = `https://wa.me/994702560509?text=${text}`;
+       });
+    };
+
+    $('#type-select').on('change', function() {
+       const type_id = $('#type-select').val();
+       if (type_id == 0) {
+          console.log('Please select a type');
+          alert('Please select a type');
+       } else {
+          calculateTotal(type_id);
+       };
+    });
+
+
+    $('#quantity-select').on('change', function() {
+       const type_id = $('#type-select').val();
+       if (type_id == 0) {
+          console.log('Please select a type');
+          alert('Please select a type');
+       } else {
+          calculateTotal(type_id);
+       };
+    });
+
+
+    function getSubscriptions() {
+       var subscriptions = document.getElementById('subscriptions');
+       var subscriptionList = [];
+       fetch('http://localhost:9000/api/products')
+          .then(response => response.json())
+          .then(datas => {
+             datas.forEach(data => {
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.href = '/product_detail/' + data.id + '/';
+                console.log(data.title);
+                a.innerHTML = data.title;
+                li.appendChild(a);
+                subscriptions.appendChild(li);
+             });
+       });
+    };
+
+    $(document).ready(function() {
+       getSubscriptions();
+    });
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + "=")) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    function subscribeMe() {
+       var tel = document.getElementById('wpTel').value;
+       console.log(tel);
+       fetch('http://localhost:9000/api/subscribe/', {
+          method: 'POST',
+          headers: {
+             'Content-Type': 'application/json',
+             "X-CSRFToken": getCookie("csrftoken"),
+          },
+          body: JSON.stringify({
+             'mobile': tel
+          })
+       })
+      .then(response => response.json())
+      .then(data => {
+         div = document.getElementById('subscribeDiv');
+         div.innerHTML = 'Təşəkkürlər, sizinlə əlaqə yaradılacaq.';
+       });
+    };
+
+    function likeProduct(product_id) {
+      fetch('http://localhost:9000/api/like/' + product_id)
+      .then(response => response.json())
+      .then(data => {
+         console.log(data);
+         document.getElementById('likeCount').innerHTML = data.likes;
+      });
+    };
+ </script>

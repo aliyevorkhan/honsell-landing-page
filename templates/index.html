@@ -1,0 +1,230 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+   {% include "includes/header.html" %}
+   <body>
+      <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+
+
+      <!-- pre loader area start -->
+      <div id="loading">
+         <div id="loading-center">
+            <div id="loading-center-absolute">
+               <!-- prealoader style 3 -->
+               <div class="tp-preloader-3">
+                  <div class="loader loader-1">
+                     <div class="loader-outter"></div>
+                     <div class="loader-inner"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- pre loader area end -->
+
+      <!-- back to top start -->
+      <div class="progress-wrap">
+         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+         </svg>
+      </div>
+      <!-- back to top end -->
+
+
+      <!-- header area start -->
+      {% include "includes/navbar.html" %}
+      <!-- header area end -->
+
+
+      <!-- theme settings area start -->
+      <div class="theme__settings transition-3">
+         <div class="theme__settings-btn">
+            <button type="button" class="theme__settings-expand" id="theme-setting-toggle"><i class="fa-solid fa-gear"></i></button>
+            <button type="button" class="theme__settings-close" id="theme-setting-close"><i class="fa-regular fa-xmark"></i></button>
+         </div>
+         <div class="theme__settings-wrapper text-center">
+
+            <div class="theme__switch mb-30">
+               <h4 class="theme__settings-title">Select your desired theme</h4>
+                  <!-- light dark moode switcher start -->
+                  <div class="my_switcher setting-option">
+                     <ul>
+                        <li>
+                           <a href="javascript: void(0);" data-theme="dark" class="setColor dark theme__switcher-btn">
+                              <i class="fa-light fa-moon"></i> Dark
+                           </a>
+                        </li>
+                        <li>
+                           <a href="javascript: void(0);" data-theme="light" class="setColor light theme__switcher-btn">
+                              <i class="fa-light fa-brightness-low"></i> Light
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               <!-- light dark moode switcher end -->
+            </div>
+
+            <div class="theme__settings-color">
+               <h4 class="theme__settings-title">Select your favorite color</h4>
+
+               <div class="theme__settings-color-input">
+                  <input type="color" data-color="color" value="#3771FE">
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- theme settings area end -->
+
+      <!-- offcanvas area start -->
+      <div class="offcanvas__area">
+         <div class="modal fade" id="offcanvasmodal" tabindex="-1" aria-labelledby="offcanvasmodal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <div class="offcanvas__wrapper">
+                      <div class="offcanvas__content">
+                         <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo logo">
+                               <a href="#">
+                               <img src="{% static 'assets/img/logo/logo-black.png' %}" alt="logo">
+                               </a>
+                            </div>
+                            <div class="offcanvas__close">
+                               <button class="offcanvas__close-btn" data-bs-toggle="modal" data-bs-target="#offcanvasmodal">
+                                  <i class="fal fa-times"></i>
+                               </button>
+                            </div>
+                         </div>
+                         
+                         <div class="mobile-menu fix mb-40"></div>
+                        
+                        
+                         <div class="offcanvas__social">
+                            <ul>
+                               <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                               <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                               <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                               <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- offcanvas area end -->      
+      <div class="body-overlay"></div>
+      <!-- offcanvas area end -->
+
+      <main>
+
+         <!-- sllider area start -->
+         <section class="slider__area slider__bg pt-100 pb-70">
+            <div class="container tp-container p-relative">
+               <div class="slider__active swiper-container">
+                  <div class="swiper-wrapper">
+                     <div class="slider__item-inner swiper-slide">
+                        <div class="row">
+                           <div class="col-xxl-12 col-xl-12">
+                              <div class="row">
+                                 {% for news_obj in news %}
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                       <div class="slider__item p-relative fix mb-30">
+                                          <a href="{% url 'product_detail' news_obj.product.id %}">
+                                             <div class="slider__thumb include-bg" data-background="{{ news_obj.image.url }}"></div>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               {% comment %} <div class="slider__nav">
+                  <button class="slider-button-next"><i class="fa-light fa-angle-right"></i></button>
+                  <button class="slider-button-prev"><i class="fa-light fa-angle-left"></i></button>
+               </div> {% endcomment %}
+            </div>
+         </section>
+         <!-- sllider area end -->
+
+         <!-- nft area start -->
+         <section class="nft__area nft__overlay pt-110">
+            <div class="container tp-container">
+               <div class="row">
+                  <div class="col-xxl-9">
+                     <div class="section__title-wrapper mb-40">
+                        <h4 class="section__title-stroke">Bütün</h4>
+                        <h3 class="section__title">Bütün abunəliklər</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="tab-content nft__tab" id="nfvtabcontent">
+                        <div class="tab-pane fade show active" id="nav-trending" role="tabpanel" aria-labelledby="nav-trending-tab">
+                           <div class="row">
+                              {% for product in products %}
+                                 <div class="col-xxl-3 col-lg-4 col-md-6">
+                                    <div class="bid__item mb-30 theme-bg-dark">
+                                       <div class="bid__item-wrapper">
+                                          <div class="bid__thumb m-img mb-15">
+                                             <a href="{% url 'product_detail' product.id %}">
+                                                <img src="{{ product.image.url }}" alt="">
+                                             </a>
+                                          </div>
+                                          <div class="bid__content">
+                                             <div class="bid__content-top d-flex align-items-center justify-content-between">
+                                                <h3 class="bid__title">
+                                                   <a href="product-details.html">{{product.title}} {{product.type}}</a>
+                                                </h3>
+                                             </div>
+                                             <div class="bid__info d-flex align-items-center justify-content-between">
+                                                <div class="bid__highest">
+                                                   <p>Qiymət: <span class="color-theme">{{product.discounted_initial_price}} AZN / <strike style="color:red;">{{product.initial_price}} AZN</strike></p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="bid__bottom d-flex align-items-center justify-content-between">
+                                             <div class="bid__btn-wrapper">
+                                                <a href="{% url 'product_detail' product.id %}" class="order-btn-1">Sifariş et</a>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              {% endfor %}
+                           </div>
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="nft__more text-center mt-20">
+                        <a href="{% url 'products' %}" class="tp-load-more">Hamısını gör</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- nft area end -->
+         <!-- features area start -->
+         {% include "includes/about-us.html" %}
+         <!-- features area end -->
+
+         
+         <!-- bid popup area start -->
+         {% comment %} {% include "includes/order-modal.html" %} {% endcomment %}
+         <!-- bid popup area end -->
+      </main>
+      {% include "includes/footer.html" %}
+   </body>
+</html>
+{% include "includes/javascript.html" %}
